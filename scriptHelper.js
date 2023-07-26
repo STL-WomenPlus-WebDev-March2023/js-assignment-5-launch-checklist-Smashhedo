@@ -31,26 +31,19 @@ button.addEventListener("click", function() {
 });
 
 function validateInput(testInput) {
-    const pilotValue = pilotName.value.trim();
-    const copilotValue = copilotName.value.trim();
-    const fuelLevelValue = fuelLevel.value.trim();
-    const cargoMassValue = cargoMass.value.trim();
-
-    if (pilotValue === '') {
-        //show error
+    let validTestInput = Number(testInput);
+    // const pilotValue = pilotName.value.trim();
+    // const copilotValue = copilotName.value.trim();
+    // const fuelLevelValue = fuelLevel.value.trim();
+    // const cargoMassValue = cargoMass.value.trim();
+    if (testInput === '') {
+        return "Empty";
+    } else if (isNaN(validTestInput)) {
+        return "Is not a number";
+    } else (!isNaN(validTestInput)) {
+        return "Is a number";
     }
 
-    if (copilotValue === '') {
-
-    }
-
-    if (fuelLevelValue === '') {
-        
-    }
-
-    if (cargoMassValue === '') {
-        
-    }
 }
 
 
