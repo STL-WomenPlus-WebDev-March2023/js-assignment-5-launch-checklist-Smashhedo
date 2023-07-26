@@ -23,6 +23,7 @@ const fuelLevel = document.getElementsByName('fuelLevel').isNumeric()
 const cargoMass = document.getElementsByName('cargoMass').isNumeric()
 const formSubmit = document.getElementById('formSubmit')
 
+
 let button = document.getElementById("formSubmit");
 button.addEventListener("click", function() {
    let input = document.getElementsByClassName("formField");
