@@ -49,7 +49,20 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     const copilotName = document.getElementsByName('copilotName')
     const fuelLevel = document.getElementsByName('fuelLevel')
     const cargoMass = document.getElementsByName('cargoMass')
-    const formSubmit = document.getElementById('formSubmit')
+    const launchStatus = document.getElementById('launchStatus')
+
+    if (validateInput(pilotName === "Empty" || copilot === "Empty" || fuelLevel === "Empty" || cargoMass === "Empty")) {
+        alert("All fields are required!");
+    }
+
+    validateInput(copilotName)
+
+    validateInput(fuelLevele)
+
+    validateInput(cargoMass)
+
+    validateInput(launchStatus)
+
 }
 
 async function myFetch() {
