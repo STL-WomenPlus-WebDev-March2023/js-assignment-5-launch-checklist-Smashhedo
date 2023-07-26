@@ -51,17 +51,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     const cargoMass = document.getElementsByName('cargoMass')
     const launchStatus = document.getElementById('launchStatus')
 
-    if (validateInput(pilotName === "Empty") || validateInput(copilotName === "Empty") || validateInput(fuelLevel === "Empty") || validateInput(cargoMass === "Empty")) {
+    if (validateInput(pilotName) === "Empty" || validateInput(copilotName) === "Empty" || 
+        validateInput(fuelLevel) === "Empty" || validateInput(cargoMass) === "Empty") {
         alert("All fields are required!");
-    }
-
-    validateInput(copilotName)
-
-    validateInput(fuelLevele)
-
-    validateInput(cargoMass)
-
-    validateInput(launchStatus)
+    } else if (validateInput(fuelLevel) === "Is not a number" || validateInput(cargoMass) === "Is not a number") {
+        alert("Please enter a number.")
+    } else (validateInput(pilotName) === "Is a number" || validateInput(copilotName) === "Is a number")
+        alert("Please enter a name.")
 
 }
 
