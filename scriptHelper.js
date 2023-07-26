@@ -56,9 +56,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("All fields are required!");
     } else if (validateInput(fuelLevel) === "Is not a number" || validateInput(cargoMass) === "Is not a number") {
         alert("Please enter a number.")
-    } else (validateInput(pilotName) === "Is a number" || validateInput(copilotName) === "Is a number")
+    } else if (validateInput(pilotName) === "Is a number" || validateInput(copilotName) === "Is a number") {
         alert("Please enter a name.")
-
+    } else (`${pilotName} is ready!`; `${copilotName} is ready!`;)
 }
 
 async function myFetch() {
