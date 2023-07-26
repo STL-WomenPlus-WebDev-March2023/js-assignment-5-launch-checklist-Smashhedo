@@ -30,8 +30,7 @@ button.addEventListener("click", function() {
    console.log(input.value);
 });
 
-function testInput() {
-    //get value from inputs
+function validateInput(testInput) {
     const pilotValue = pilotName.value.trim();
     const copilotValue = copilotName.value.trim();
     const fuelLevelValue = fuelLevel.value.trim();
@@ -52,11 +51,6 @@ function testInput() {
     if (cargoMassValue === '') {
         
     }
-}
-
-
-function validateInput(testInput) {
-  
 }
 
 
