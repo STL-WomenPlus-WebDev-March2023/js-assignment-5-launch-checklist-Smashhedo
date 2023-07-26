@@ -1,7 +1,6 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
    /*
@@ -15,6 +14,38 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 </ol>
                 <img src="">
    */
+}
+
+const formField = document.getElementsByClassName('formField')
+const pilotName = document.getElementById('pilotName').isNaN()
+const copilotName = document.getElementsByName('copilotName').isNaN()
+const fuelLevel = document.getElementsByName('fuelLevel').isNumeric()
+const cargoMass = document.getElementsByName('cargoMass').isNumeric()
+const formSubmit = document.getElementById('formSubmit')
+let button = document.getElementById("formSubmit");
+
+function testInput() {
+    //get value from inputs
+    const pilotValue = pilotName.value.trim();
+    const copilotValue = copilotName.value.trim();
+    const fuelLevelValue = fuelLevel.value.trim();
+    const cargoMassValue = cargoMass.value.trim();
+
+    if (pilotValue === '') {
+        //show error
+    }
+
+    if (copilotValue === '') {
+
+    }
+
+    if (fuelLevelValue === '') {
+        
+    }
+
+    if (cargoMassValue === '') {
+        
+    }
 }
 
 
