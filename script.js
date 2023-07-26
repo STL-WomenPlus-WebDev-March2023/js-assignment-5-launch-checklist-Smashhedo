@@ -1,12 +1,5 @@
 // Write your JavaScript code here!
 
-let button = document.getElementById("formSubmit");
-// add event handler for when button clicked
-button.addEventListener("click", function() {
-   let input = document.getElementsByClassName("formField");
-   console.log(input.value);
-});
-
 window.addEventListener("load", function() {
         let form = document.querySelector("form");
           form.addEventListener("formSubmit", function(event) {
@@ -28,4 +21,3 @@ window.addEventListener("load", function() {
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
    })
    
-//});

@@ -16,13 +16,18 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-const formField = document.getElementsByClassName('formField')
+//find a different place to put .NaN() and .isNumeric()
 const pilotName = document.getElementById('pilotName').isNaN()
 const copilotName = document.getElementsByName('copilotName').isNaN()
 const fuelLevel = document.getElementsByName('fuelLevel').isNumeric()
 const cargoMass = document.getElementsByName('cargoMass').isNumeric()
 const formSubmit = document.getElementById('formSubmit')
+
 let button = document.getElementById("formSubmit");
+button.addEventListener("click", function() {
+   let input = document.getElementsByClassName("formField");
+   console.log(input.value);
+});
 
 function testInput() {
     //get value from inputs
