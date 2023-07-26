@@ -17,11 +17,11 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 //find a different place to put .NaN() and .isNumeric()
-const pilotName = document.getElementById('pilotName').isNaN()
-const copilotName = document.getElementsByName('copilotName').isNaN()
-const fuelLevel = document.getElementsByName('fuelLevel').isNumeric()
-const cargoMass = document.getElementsByName('cargoMass').isNumeric()
-const formSubmit = document.getElementById('formSubmit')
+// const pilotName = document.getElementById('pilotName')
+// const copilotName = document.getElementsByName('copilotName')
+// const fuelLevel = document.getElementsByName('fuelLevel')
+// const cargoMass = document.getElementsByName('cargoMass')
+// const formSubmit = document.getElementById('formSubmit')
 
 
 let button = document.getElementById("formSubmit");
@@ -40,15 +40,16 @@ function validateInput(testInput) {
         return "Empty";
     } else if (isNaN(validTestInput)) {
         return "Is not a number";
-    } else (!isNaN(validTestInput)) {
-        return "Is a number";
-    }
-
+    } else (!isNaN(validTestInput)) 
+        return "Is a number";   
 }
 
-
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
- 
+    const pilotName = document.getElementById('pilotName')
+    const copilotName = document.getElementsByName('copilotName')
+    const fuelLevel = document.getElementsByName('fuelLevel')
+    const cargoMass = document.getElementsByName('cargoMass')
+    const formSubmit = document.getElementById('formSubmit')
 }
 
 async function myFetch() {
