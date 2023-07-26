@@ -51,7 +51,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     const cargoMass = document.getElementsByName('cargoMass')
     const launchStatus = document.getElementById('launchStatus')
 
-    if (validateInput(pilotName === "Empty" || copilot === "Empty" || fuelLevel === "Empty" || cargoMass === "Empty")) {
+    if (validateInput(pilotName === "Empty") || validateInput(copilotName === "Empty") || validateInput(fuelLevel === "Empty") || validateInput(cargoMass === "Empty")) {
         alert("All fields are required!");
     }
 
