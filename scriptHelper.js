@@ -75,6 +75,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
+    const randomPlanet = planets.lenght(Math.floor(Math.random()));
     return myFetch(Math.random());
 }
 
