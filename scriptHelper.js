@@ -58,8 +58,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("Please enter a number.")
     } else if (validateInput(pilotName) === "Is a number" || validateInput(copilotName) === "Is a number") {
         alert("Please enter a name.")
-    } else (`${pilotName} is ready!`; `${copilotName} is ready!`;)
-}
+    } else {
+        pilotName.innerHTML`${pilotName} is ready!`; 
+        copilotName.innerHTML`${copilotName} is ready!`;
+
+    }
+
+
+
+
+
+
+
+
+
+
+} //End of formSubmission function
 
 async function myFetch() {
     let planetsReturned;
