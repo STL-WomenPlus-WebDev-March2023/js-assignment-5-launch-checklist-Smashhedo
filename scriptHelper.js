@@ -1,19 +1,22 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
+function addDestinationInfo(document, name, diameter, star, distance, moons, image) {
    // Here is the HTML formatting for our mission target div.
-   /*
+   let missionTarget = document.getElementById("missionTarget");
+        missionTarget.innerHTML = 
+                `
                 <h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
-                    <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
-                </ol>
-                <img src="">
-   */
+                    <ol>
+                        <li>Name: ${name} </li>
+                        <li>Diameter: ${diameter} </li>
+                        <li>Star: ${star} </li>
+                        <li>Distance from Earth: ${distance} </li>
+                        <li>Number of Moons: ${moons} </li>
+                    </ol>
+                <img src="${image}">
+                `
+                
 }
 
 //find a different place to put .NaN() and .isNumeric()
@@ -44,35 +47,53 @@ function validateInput(testInput) {
         return "Is a number";   
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    const pilotName = document.getElementById('pilotName')
-    const copilotName = document.getElementsByName('copilotName')
-    const fuelLevel = document.getElementsByName('fuelLevel')
-    const cargoMass = document.getElementsByName('cargoMass')
-    const launchStatus = document.getElementById('launchStatus')
+function formSubmission(document, list, pilotField, copilotField, fuelField, cargoField) {
+    const pilotName = pilotField.value;
+    const copilotName = copilotField.value;
+    const fuelLevel = fuelField.value;
+    const cargoMass = cargoField.value;
+
+    const launchStatus = document.getElementById('launchStatus');
+    const pilotStatus = document.getElementById('pilotStatus');
+    const copilotStatus = document.getElementById('copilotStatus');
+    const fuelStatus = document.getElementById('fuelStatus');
+    const cargoStatus = document.getElementById('cargoStatus');
 
     if (validateInput(pilotName) === "Empty" || validateInput(copilotName) === "Empty" || 
         validateInput(fuelLevel) === "Empty" || validateInput(cargoMass) === "Empty") {
         alert("All fields are required!");
+        list.style.visibility = "hidden";
+        launchStatus.innerHTML = "Shuttle not ready for launch";
+        launchStatus.style.color = "#C7254E";
+        return;
     } else if (validateInput(fuelLevel) === "Is not a number" || validateInput(cargoMass) === "Is not a number") {
         alert("Please enter a number.")
     } else if (validateInput(pilotName) === "Is a number" || validateInput(copilotName) === "Is a number") {
         alert("Please enter a name.")
     } else {
-        pilotName.innerHTML`${pilotName} is ready!`; 
-        copilotName.innerHTML`${copilotName} is ready!`;
-
+        pilotStatus.innerHTML = `${pilotName} is ready!`; 
+        copilotStatus.innerHTML = `${copilotName} is ready!`;
+        list.style.visibility = "visible";
     }
-
-
-
-
-
-
-
-
-
-
+        if (fuelLevel < 10000 && cargoMass >= 10000) {
+            launchStatus.innerHTML = "Shuttle not ready for launch";
+            fuelStatus.innerHTML = "Fuel too low, must have 10000.";
+            cargoStatus.innerHTML = "Cargo mass is too heavy, must be lower than 10000.";
+            launchStatus.style.color = "#C7254E";
+        } else if (fuelLevel >= 10000 && cargoMass >= 10000) {
+            launchStatus.innerHTML = "Shuttle not ready for launch";
+            cargoStatus.innerHTML = "Cargo mass is too heavy, must be lower than 10000.";
+            launchStatus.style.color = "#C7254E";
+        } else if (fuelLevel < 10000 && cargoMass < 10000) {
+            launchStatus.innerHTML = "Shuttle not ready for launch";
+            fuelStatus.innerHTML = "Fuel too low, must have 10000.";
+            launchStatus.style.color = "#C7254E";
+        } else {
+            launchStatus.innerHTML = "Shuttle is ready for launch";
+            launchStatus.style.color = "#419F6A";
+            fuelStatus.innerHTML = "Fuel OK.";
+            cargoStatus.innerHTML = "Cargo mass OK.";
+        }
 } //End of formSubmission function
 
 async function myFetch() {
